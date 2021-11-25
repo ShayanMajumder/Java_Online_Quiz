@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 
+import java.util.*;
+
 
 
 
@@ -91,16 +93,29 @@ public class Quiz extends JFrame{
 	}
 
 	List<MCQ> questions = new ArrayList<>();
+	List<Integer> numbers = new ArrayList<>();
+
+	{
+	for(int j = 0; j<total; j++)
+	{
+		numbers.add(j);
+	}
+	Collections.shuffle(numbers); // For random list of questions
+
+	}
+
 	{
 
 	for(int j= 0; j < total ; j++)
 	{
 		questions.add(new MCQ(
-			(j+1) + ")"+ str_questions.get(j),
-			answers.get(j),
-			correct_ans.get(j),this,j,(total-1)
+			(j+1) + ")"+ str_questions.get(numbers.get(j)),
+			answers.get(numbers.get(j)),
+			correct_ans.get(numbers.get(j)),this,j,(total-1)
 		));
+		
 	}
+	
 	}
 	
 	
@@ -144,28 +159,28 @@ public class Quiz extends JFrame{
 			{
 			if(questions.get(i).correctAns== questions.get(i).selected)
 			{
-			S = S + '\n'+ (i+1)+ ')' +questions.get(i).question
+			S = S + '\n' +questions.get(i).question
 			 	+ '\n' + "Correct Ans is -> " + answers.get(i).get(questions.get(i).correctAns)
 				 + "         " + "You Selected ->" + answers.get(i).get(questions.get(i).selected)+ "   Marks -> +1"; }
 			else{
-				S = S + '\n'+ (i+1)+ ')' +questions.get(i).question
+				S = S + '\n' +questions.get(i).question
 			 	+ '\n' + "Correct Ans is -> " + answers.get(i).get(questions.get(i).correctAns)
 				 + "         " + "You Selected ->" + answers.get(i).get(questions.get(i).selected) + "   Marks -> 0";
 
 			}
 		}
 			else{
-				S = S + '\n'+ (i+1)+ ')' +questions.get(i).question
+				S = S + '\n'+ questions.get(i).question
 			 	+ '\n' + "Correct Ans is -> " +answers.get(i).get(questions.get(i).correctAns)
 				 + "         " + "You Selected ->" + "Unattempted" + "   Marks -> 0";
 				 unattempted++;
 			}
 			}
-		JOptionPane.showMessageDialog(null,"Here are your results"+
+		JOptionPane.showMessageDialog(null,"Result"+
  			
  			"\nScore: \t"+C+
  			
- 			"\nTotal: "+ (C+W+unattempted) + '\n' + 
+ 			'\n' + 
 
 			 "**************** SUMMARY OF THE TEST IS ***************************\n" +
 			 S

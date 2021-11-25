@@ -1,25 +1,2 @@
-12,1234:Name: qefv Score: 1 ID: 1234
-14,asdvasd:Name: wdcadc Score: 2 ID: asdvasd
-9,aefafv:Name: aef Score: 0 ID: aefafv
-12,2019A3PS0259P:Name: Shayan Score: 2 ID: 2019A3PS0259P
-6,wrgb:Name: wrgb Score: 0 ID: wrgb
-3,qevf:Name: qdwv Score: 0 ID: qevf
-10,majumder:Name: Shayan Score: 1 ID: majumder
-6,asdv:Name: Shayan Score: 0 ID: asdv
-7,afv:Name: aefg Score: 0 ID: afv
-7,SDV:Name: AVF Score: 0 ID: SDV
-5,Majumder:Name: Shayan Score: 0 ID: Majumder
-5,df:Name: ASF Score: 0 ID: df
-5,2019A3Ps:Name: Shayan Score: 0 ID: 2019A3Ps
-6,qfdadv:Name: Shayan Score: 0 ID: qfdadv
-5,SDV:Name: Shayan Score: 2 ID: SDV
-4,WSDF:Name: arwf Score: 2 ID: WSDF
-5,asdv:Name: Shds Score: 2 ID: asdv
-4,SDV:Name: afsv Score: 1 ID: SDV
-4,dfdf:Name: WFD Score: 1 ID: dfdf
-4,ASFDV:Name: WEFW Score: 1 ID: ASFDV
-4,asfv:Name: as Score: 1 ID: asfv
-9,SDV:Name: asfv Score: 2 ID: SDV
-9,asdfv:Name: afsv Score: 1 ID: asdfv
-8,asf:Name: asfv Score: 4 ID: asf
-11,2019A3PS0259P:Name: Shayan Majumder Score: 1 ID: 2019A3PS0259P
+11,20190259:Name: Shayan Score: 2 ID: 20190259
+9,0259:Name: Shayan Score: 0 ID: 0259

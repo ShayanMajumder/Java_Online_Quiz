@@ -19,7 +19,7 @@ public class admin {
       while ((str = bufferedReader.readLine()) != null) {
         String[] arrayOfString = str.split(":", 2);
         String s = arrayOfString[0].split(",",2)[0];
-        treeMap.put(Integer.valueOf(Integer.parseInt(s)), arrayOfString[1]);
+        treeMap.put(-Integer.valueOf(Integer.parseInt(s)), arrayOfString[1]);
       } 
       fileReader.close();
       System.out.println("Contents of File: ");
