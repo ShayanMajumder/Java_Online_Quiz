@@ -1,6 +1,3 @@
-// Java program to implement
-// a Simple Registration Form
-// using Java Swing
  
 import javax.swing.*;
 import java.awt.*;
@@ -8,150 +5,135 @@ import java.awt.event.*;
 import java.util.Timer;
 import java.util.TimerTask;
  
-class registration1
-    extends JFrame
+class registration1 extends JFrame
     implements ActionListener {
  
-    // Components of the Form
-    private Container c;
+    private Container cont;
+
     private JLabel title;
     private JLabel name;
     private JTextField tname;
-    private JLabel mno;
-    private JTextField tmno;
+
+
+    private JLabel id;
+
+    private JTextArea tout;
+    private JLabel setr;
+    private JTextArea setc;
+    boolean quizstart = false;
+
+    private JTextField t_id;
     private JTextArea tadd;
     private JCheckBox term;
-    private JButton sub;
+    private JButton starts;
     private JButton reset;
-    private JTextArea tout;
-    private JLabel res;
-    private JTextArea resadd;
-    boolean quizstart = false;
  
  
-    // constructor, to initialize the components
-    // with default values.
     public registration1()
     {
         setTitle("Registration Form");
-        setBounds(300, 90, 900, 600);
+        setBounds(600, 200, 500, 400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
  
-        c = getContentPane();
-        c.setLayout(null);
+        cont = getContentPane();
+        cont.setLayout(null);
  
-        title = new JLabel("Candidate Registration Form");
+        title = new JLabel("Register");
         title.setFont(new Font("Arial", Font.PLAIN, 30));
-        title.setSize(300, 30);
-        title.setLocation(300, 30);
-        c.add(title);
+        title.setSize(200, 300);
+        title.setLocation(200, -100);
+        cont.add(title);
+
+
+        id = new JLabel("ID");
+        id.setFont(new Font("Arial", Font.PLAIN, 20));
+        id.setSize(100, 20);
+        id.setLocation(100, 150);
+        cont.add(id);
+ 
+        t_id = new JTextField();
+        t_id.setFont(new Font("Arial", Font.PLAIN, 15));
+        t_id.setSize(150, 20);
+        t_id.setLocation(200, 150);
+        cont.add(t_id);
+
+
+
  
         name = new JLabel("Name");
         name.setFont(new Font("Arial", Font.PLAIN, 20));
         name.setSize(100, 20);
         name.setLocation(100, 100);
-        c.add(name);
+        cont.add(name);
  
         tname = new JTextField();
         tname.setFont(new Font("Arial", Font.PLAIN, 15));
         tname.setSize(190, 20);
         tname.setLocation(200, 100);
-        c.add(tname);
+        cont.add(tname);
  
-        mno = new JLabel("ID");
-        mno.setFont(new Font("Arial", Font.PLAIN, 20));
-        mno.setSize(100, 20);
-        mno.setLocation(100, 150);
-        c.add(mno);
- 
-        tmno = new JTextField();
-        tmno.setFont(new Font("Arial", Font.PLAIN, 15));
-        tmno.setSize(150, 20);
-        tmno.setLocation(200, 150);
-        c.add(tmno);
+        
  
  
-        sub = new JButton("Start Test");
-        sub.setFont(new Font("Arial", Font.PLAIN, 15));
-        sub.setSize(100, 20);
-        sub.setLocation(150, 450);
-        sub.addActionListener(this);
-        c.add(sub);
+        starts = new JButton("Start Test");
+        starts.setFont(new Font("Arial", Font.PLAIN, 15));
+        starts.setSize(100, 20);
+        starts.setLocation(150, 250);
+        starts.addActionListener(this);
+        cont.add(starts);
  
         reset = new JButton("Reset");
         reset.setFont(new Font("Arial", Font.PLAIN, 15));
         reset.setSize(100, 20);
-        reset.setLocation(270, 450);
+        reset.setLocation(270, 250);
         reset.addActionListener(this);
-        c.add(reset);
+        cont.add(reset);
  
-        tout = new JTextArea();
-        tout.setFont(new Font("Arial", Font.PLAIN, 15));
-        tout.setSize(300, 400);
-        tout.setLocation(500, 100);
-        tout.setLineWrap(true);
-        tout.setEditable(false);
-        c.add(tout);
- 
-        res = new JLabel("");
-        res.setFont(new Font("Arial", Font.PLAIN, 20));
-        res.setSize(500, 25);
-        res.setLocation(100, 500);
-        c.add(res);
- 
-        resadd = new JTextArea();
-        resadd.setFont(new Font("Arial", Font.PLAIN, 15));
-        resadd.setSize(200, 75);
-        resadd.setLocation(580, 175);
-        resadd.setLineWrap(true);
-        c.add(resadd);
+        
  
         setVisible(true);
     }
  
-    // method actionPerformed()
-    // to get the action performed
-    // by the user and act accordingly
+  
     public void actionPerformed(ActionEvent e)
     {
-        if (e.getSource() == sub) {
+        if (e.getSource() == starts) {
             
-                String data
-                    = "Name : "
-                      + tname.getText() + "\n"
-                      + "ID : "
-                      + tmno.getText() + "\n";
-                
                 
  
-                tout.setText(data);
-                tout.setEditable(false);
-                res.setText("Best Of Luck...");
+                
                 quizstart = true;
-                Quiz current = new Quiz(tname.getText(),tmno.getText());
-                JFrame jframe = new JFrame();
-                JLabel jLabel = new JLabel();
-                jframe.setLayout(new FlowLayout());
-                jframe.setBounds(500, 300, 400, 100);
+                Quiz current = new Quiz(tname.getText(),t_id.getText());
+                JFrame timer_frame = new JFrame();
+                JLabel TimerLable = new JLabel();
+                timer_frame.setLayout(new FlowLayout());
+                timer_frame.setBounds(1000, 100, 400, 100);
 
-                jframe.add(jLabel);
-                jframe.setVisible(true);
+                timer_frame.add(TimerLable);
+                timer_frame.setVisible(true);
 
-                Timer timer = new Timer();
+                Timer clock = new Timer();
 
-                timer.scheduleAtFixedRate(new TimerTask() {
+                clock.scheduleAtFixedRate(new TimerTask() {
+
                     int i = current.duration;
 
                     public void run() {
 
-                        jLabel.setText("Time left: " + i);
+                        TimerLable.setText("Time left: " + i);
+                
                         i--;
 
                         if (i < 0) {
-                            timer.cancel();
-                            jLabel.setText("Time Over");
-                            current.showSummary();
+
+                            clock.cancel();
+
+                            TimerLable.setText("Your Quiz time is UP");
+
+
+
+                            current.result();
                         }
                     }
                 }, 0, 1000);
@@ -161,21 +143,20 @@ class registration1
             String def = "";
             tname.setText(def);
             tadd.setText(def);
-            tmno.setText(def);
-            res.setText(def);
+            t_id.setText(def);
+            setr.setText(def);
             tout.setText(def);
             term.setSelected(false);
-            resadd.setText(def);
+            setc.setText(def);
         }
     }
 }
  
-// Driver Code
 class registration {
  
     public static void main(String[] args) throws Exception
     {
-        registration1 f = new registration1();
+        registration1 abc = new registration1();
 		
     }
 }

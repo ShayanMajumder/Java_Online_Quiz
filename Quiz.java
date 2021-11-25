@@ -1,9 +1,13 @@
+import java.io.*;
+import java.util.*;
 import javax.swing.JFrame;
+
+
 import javax.swing.JPanel;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
-import java.io.*;
-import java.util.*;
+
+
 
 
 public class Quiz extends JFrame{
@@ -15,9 +19,11 @@ public class Quiz extends JFrame{
 	
 
 
-	int wrongs = 0;
-	int corrects=0;
+	
 	int total=9;
+
+	int W = 0;
+	int C=0;
 	int unattempted = 0;
 	int duration = 500;
 	{
@@ -84,15 +90,15 @@ public class Quiz extends JFrame{
 	  }
 	}
 
-	List<RadioQuestion> questions = new ArrayList<>();
+	List<MCQ> questions = new ArrayList<>();
 	{
 
 	for(int j= 0; j < total ; j++)
 	{
-		questions.add(new RadioQuestion(
-			str_questions.get(j),
+		questions.add(new MCQ(
+			(j+1) + ")"+ str_questions.get(j),
 			answers.get(j),
-			correct_ans.get(j),this
+			correct_ans.get(j),this,j,(total-1)
 		));
 	}
 	}
@@ -119,8 +125,8 @@ public class Quiz extends JFrame{
 	}
 	
 	public void next(){
-		if((corrects+wrongs)==(total)){
-			showSummary();
+		if((C+W)==(total)){
+			result();
 		}else{
  
  			cards.show(p,"q"+i);
@@ -129,8 +135,8 @@ public class Quiz extends JFrame{
 		}
 	}
 	
-	public void showSummary(){
-		student.setScore(corrects);
+	public void result(){
+		student.setScore(C);
 		String S = "";
 		for(int i=0; i< questions.size(); i++)
 		{
@@ -157,9 +163,9 @@ public class Quiz extends JFrame{
 			}
 		JOptionPane.showMessageDialog(null,"Here are your results"+
  			
- 			"\nScore: \t"+corrects+
+ 			"\nScore: \t"+C+
  			
- 			"\nTotal: "+ (corrects+wrongs+unattempted) + '\n' + 
+ 			"\nTotal: "+ (C+W+unattempted) + '\n' + 
 
 			 "**************** SUMMARY OF THE TEST IS ***************************\n" +
 			 S
