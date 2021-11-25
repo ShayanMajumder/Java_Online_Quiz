@@ -28,3 +28,4 @@ what is the capital of india?~New Delhi~Noida~Pilani~Mumbai~0
 what is the capital of india?~New Delhi~Noida~Pilani~Mumbai~0
 what is the capital of india?~New Delhi~Noida~Pilani~Mumbai~0
 what is the capital of india?~New Delhi~Noida~Pilani~Mumbai~0
+What is the capital of bangladesh?~New Delhi~Dhaka~New York~Moscow~1
